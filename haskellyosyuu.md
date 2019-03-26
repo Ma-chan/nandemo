@@ -16,6 +16,11 @@
 
 *エレガントで簡潔
 
+高度な概念をたくさん用いているため
+ハスケルのプログラムは、他の命令語よりも短い
+短いので、持続しやすく、バグも少ない。
+
+
 ##GHC
 
 *ハスケルのコンパイラーとしてもっとも広く使われているコンパイラー
@@ -48,5 +53,23 @@
 *ブール関数
 ```
 ghci>not (True && False || True) == False
+```
+Prelude>を対話モードghci>に変える
+```
+　:set prompt "ghci> "
+ ```
+
+ブール代数
+```
+ghci>not (True && False || True) == False
+ghci> True && False
+ghci> False || True 
+ghci> not (True && True)  
+ghci> not False 
+```
+
+数字に1を足す
+```
+ghci> succ 数字
 ```
 
