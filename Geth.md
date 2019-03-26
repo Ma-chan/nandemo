@@ -1,5 +1,52 @@
-Gethの初期化
-geth --datadir /Users/matsumotoayaka/eth_private_net init /Users/matsumotoayaka/eth_private_net/genesis.json
+#Haskell輪講予習
 
-Geth起動
-geth --networkid "10" --nodiscover --datadir "/Users/matsumotoayaka/eth_private_net" console 2>> /Users/matsumotoayaka/eth_private_net/geth_err.log
+##ハスケルとは?
+
+*関数プログラミング言語
+
+何かを計算して、その結果を返すだけ。
+
+同じ変数で関数を呼ぶと同じ結果がかえる、参照透過性を持つ。
+
+*静的型付け
+
+　(例)a=5+4と言った場合に、ハスケルにaが数字であると言う。必要がない、ハスケル自身がそれを理解する。
+ 
+*型推論をして、変数の型をハスケル自身が理解する。
+
+*エレガントで簡潔
+
+##GHC
+
+*ハスケルのコンパイラーとしてもっとも広く使われているコンパイラー
+
+##Haskellコマンドメモ
+
+*ファイルの関数をロードする場合
+```
+:l <ファイル名>
+```
+
+*.hsのスクリプトの内容を変える場合
+```
+:l <ファイル名>
+:r
+```
+
+現在のスクリプトをリロードするので、同じ処理になる。
+
+*Ghcのインタラクティブモードを動かす
+*対話モードを起動する
+```
+　ghci
+ ```
+
+*Prelude>を対話モードghci>に変える
+```
+　:set prompt "ghci> "
+```
+*ブール関数
+```
+ghci>not (True && False || True) == False
+```
+
