@@ -1,4 +1,4 @@
-#Haskell輪講予習^H^H
+#Haskell輪講予習
 
 ##ハスケルとは?
 
