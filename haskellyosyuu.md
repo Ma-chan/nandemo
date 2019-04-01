@@ -55,16 +55,11 @@
 ```
 　:set prompt "ghci> "
 ```
-* ブール関数
-```
-ghci>not (True && False || True) == False
-```
-* Prelude>を対話モードghci>に変える
-```
-　:set prompt "ghci> "
- ```
+
 
 * ブール代数
+
+Haskellでは、&&はand,||はorを表す。
 ```
 ghci>not (True && False || True) == False
 ghci> True && False
@@ -73,8 +68,20 @@ ghci> not (True && True)  
 ghci> not False 
 ```
 
+* 簡単な計算
+
+5+4.0では、5は整数と浮動小数のどちらにもなることができるが、4.0は浮動小数のみなので、5が採択される。
+
 * 数字に1を足す
 ```
 ghci> succ 数字
 ```
+* 関数呼び出し
+
+Haskellでは、関数と変数はスペースによって分かれている。
+
+```
+ghci> <関数名> <変数>
+```
+
 
