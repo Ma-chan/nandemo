@@ -2,10 +2,6 @@
 theme : sky
 
 
-#ロゴアイコンの設定
-logo : logo.png
-
-
 #フットノートの設定
 footnote : "© 2017 sample Inc."
 
@@ -28,6 +24,3 @@ loop : true
 #トランジションの設定
 transition : fade
 
-
-#チャート / グラフ機能の設定
-charts : true
