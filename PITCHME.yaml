@@ -2,9 +2,6 @@
 theme : sky
 
 
-#フットノートの設定
-footnote : "© Matsumoto Ayaka."
-
 
 #スライドのページ数表示の設定
 slide-number: true
