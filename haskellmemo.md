@@ -206,13 +206,28 @@ sum' (x:xs) = x + sum' xs
 ### ガード
 
 ざっくりガード
+ガードはブール表現に基づいている
+ガードがTrueと評価するならば一致する関数の内容が使用される、Falseならば
 
 ```
-式
-  | 条件1 = 条件1にマッチしたとの処理
-  | 条件2 = 条件2にマッチしたとの処理
-  | otherwise = いずれの条件にもマッチしなかった時の処理
+関数 引数       
+        | ガード条件1 = 式1
+        | ガード条件2 = 式2
+        | otherwise = 式3
 ```
+
+BMIの数値によって、細いか太いかを表示するコード
+BMIの数値によって条件分岐して、結果を出力している
+```
+bmiTell :: (RealFloat a) => a -> String  
+bmiTell bmi  
+    | bmi <= 18.5 = "You're underweight, you emo, you!"  
+    | bmi <= 25.0 = "You're supposedly normal. Pffft, I bet you're ugly!"  
+    | bmi <= 30.0 = "You're fat! Lose some weight, fatty!"  
+    | otherwise   = "You're a whale, congratulations!" 
+```
+
+
 
 輪講終了時
 対話モードを抜ける時
