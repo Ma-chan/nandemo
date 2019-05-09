@@ -218,7 +218,7 @@ otherwiseならば、
         | otherwise = 式3
 ```
 
-BMIの数値によって、細いか太いかを表示するコード
+BMIの数値によって、罵倒されるコード
 BMIの数値によって条件分岐して、結果を出力している
 ```
 bmiTell :: (RealFloat a) => a -> String  
