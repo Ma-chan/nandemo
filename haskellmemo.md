@@ -1,16 +1,23 @@
 ## Syntax in Functions
+### Reference
 
 Preludeからたいわモードに変えたい
 ```
 set prompt "ghci> "
 ```
+### 関数の実行
 
-たーみなるで::をつかいたいとき
-
+ターミナルで実行したい時
 ```
 :{
 関数の型宣言::が使える
 :}
+```
+ファイル保存からの実行
+
+```
+:load ファイル名.hs
+:l ファイル名.hs
 ```
 
 ### ぱたーんまっち
@@ -47,6 +54,8 @@ sayMe x = "Not between 1 and 5"
 :}
 ```
 
+### 再帰
+
 階乗関数
 前章で書いた階乗関数
 
@@ -62,6 +71,7 @@ factorial n = product [1..n]
 
 再帰を使用
 入力した数の一つ前の数字と掛け合わせて書いた階乗関数
+パターンを定義する時に、はじめに具体的な0!=1の様なパターンを書いてから、一般的なn!=n*(n-1)を書いた方が良い
 
 ```
 :{
@@ -74,7 +84,7 @@ factorial n = n * factorial (n - 1)
 パターンマッチの失敗例
 
 全てのパターンを含んだ関数でない場合、エラーが出て、パターンマッチが失敗する。
-charName関数では、全てのアルファベットに対応していないため、関数のbody内で記述していない入力をされると、"関数charName内でその様なパターンは存在しない"とエラーが出てしまう。
+charName関数では、パターンマッチで考慮されていない場合はエラーになってしまう。
 ```
 :{
 charName :: Char -> String  
@@ -91,6 +101,8 @@ ghci> charName 'h'
 ```
 
 タプルもパターンマッチで使える。
+そのおかげで、二次元領域で(x1,y1),(x2,y2)の様な二つのベクトルの中身同士の計算ができる。
+(a,a)->(a,a)->(a,a)では、二つのタプルの入力をして、一つのタプルを出力する、という関数の変数の宣言をしている。
 
 ```
 :{
@@ -99,7 +111,90 @@ addVectors a b = (fst a + fst b, snd a + snd b)
 :}
 ```
 
+パターンマッチを使って書いたaddVector関数
 
 
+```
+:{
+addVectors :: (Num a) => (a, a) -> (a, a) -> (a, a)  
+addVectors (x1, y1) (x2, y2) = (x1 + x2, y1 + y2)
+:}
+```
+
+
+```
+:{
+first :: (a, b, c) -> a  
+first (x, _, _) = x  
+  
+second :: (a, b, c) -> b  
+second (_, y, _) = y  
+  
+third :: (a, b, c) -> c  
+third (_, _, z) = z  
+:}
+```
+タプルを操作するfstとsndの変数を3つにしたfstとsndを作る
+_はその要素をスキップすることと同じ意味。
+
+```
+:{
+first :: (a, b, c) -> a  
+first (x, _, _) = x  
+  
+second :: (a, b, c) -> b  
+second (_, y, _) = y  
+  
+third :: (a, b, c) -> c  
+third (_, _, z) = z  
+:}
+```
+リスト関数headをパターンマッチで実装する場合、
+Remind 
+head:リストの先頭要素を返すリスト関数
+
+```
+head' :: [a] -> a  
+head' [] = error "Can't call head on an empty list, dummy!"  
+head' (x:_) = x  
+```
+
+tell関数では、(x:[])は糖衣構文の[x]と同じ意味、(x:y:[])は[x,y]と同じ意味、2つ以上のリストでは、[]が使えないので、_でリストの要素数が2つ以上の場合について書いている。
+
+```
+tell :: (Show a) => [a] -> String  
+tell [] = "The list is empty"  
+tell (x:[]) = "The list has one element: " ++ show x  
+tell (x:y:[]) = "The list has two elements: " ++ show x ++ " and " ++ show y  
+tell (x:y:_) = "This list is long. The first two elements are: " ++ show x ++ " and " ++ show y  
+```
+
+リスト関数lengthを再帰とパターンマッチを使って、実装する。
+
+```
+length' :: (Num b) => [a] -> b  
+length' [] = 0  
+length' (_:xs) = 1 + length' xs 
+```
+
+sum関数を再帰とパターンマッチを使って実装する。
+
+```
+sum' :: (Num a) => [a] -> a  
+sum' [] = 0  
+sum' (x:xs) = x + sum' xs  
+```
+
+##　ガード
+
+
+
+輪講終了時
+対話モードを抜ける時
+
+```
+:quit
+:q
+```
 
 
