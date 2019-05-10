@@ -229,7 +229,20 @@ bmiTell bmi
     | otherwise   = "You're a whale, congratulations!" 
 ```
 
+### where
 
+ざっくりwhere
+
+```
+関数 引数       
+        | ガード条件1 = 式1
+        | ガード条件2 = 式2
+        | otherwise = 式3
+        where 変数宣言
+        変数１
+        変数２
+        変数３
+```
 
 輪講終了時
 対話モードを抜ける時
