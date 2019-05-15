@@ -18,7 +18,9 @@ maximum関数はOrdering型(順番つける)のリストを受け取って、リ
 入力したリストが空であれば、エラーを返す。
 リストに１つ要素が入っている場合は、その要素を返す。
 maximum' (x:xs)では、ガードを用いて条件分岐している。
+<br>
 条件分岐１　maxTailが先頭要素xよりも大きい場合、maxTailをxとする。
+<br>
 条件分岐2　その他のmaxTailがx以上の値をとる場合は、そのままmaxTailになる。
 whereで変数宣言をし、xを除いたリストの要素の中で一番大きな値になる変数maxTailを定義している。
 
@@ -33,8 +35,14 @@ maximum' (x:xs)
     where maxTail = maximum' xs  
 :}
 ```
-
 haskellでは、if文でたくさん分岐しなくても、パターンマッチを使えばスッキリかける。
+次に、maxを使って、maximumを書き換える。
+```
+ghci> max 1 10
+10
+ghci> max 200 1
+200
+```
 
 ```haskell:maximun'.hs
 maximum' :: (Ord a) => [a] -> a  
@@ -42,6 +50,7 @@ maximum' [] = error "maximum of empty list"
 maximum' [x] = x  
 maximum' (x:xs) = max x (maximum' xs)  
 ```
+
 
 
 
