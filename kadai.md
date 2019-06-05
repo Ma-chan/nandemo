@@ -47,7 +47,8 @@ wari i n = if i * i <= n
             
 ```
 
-<br/>
+
 ![犬](https://maigo-pet.net/tokusyuu/img/dog-maigo-4.jpg =10x10)
-<br/>
+
+
 <img src="https://maigo-pet.net/tokusyuu/img/dog-maigo-4.jpg" width="100px" height="100px">
