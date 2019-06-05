@@ -46,3 +46,4 @@ wari i n = if i * i <= n
             else True
             
 ```
+<img src="https://maigo-pet.net/tokusyuu/img/dog-maigo-4.jpg" width="100px" height="100px">
